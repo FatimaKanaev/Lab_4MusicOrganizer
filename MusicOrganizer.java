@@ -67,6 +67,7 @@ public class MusicOrganizer
             items.add("song4"); //index 3
             items.add("song5"); //index 4
             items.add("song6"); //index 5
+            items.add("song7"); //index 6
             
             String filesname = items.get(4); // filename = "song5"
             System.out.println("Retreiving 5th element of items: " + filename);
@@ -92,7 +93,8 @@ public class MusicOrganizer
      */
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        // 
+        if(validIndex(index)) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -104,8 +106,37 @@ public class MusicOrganizer
      */
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        // 
+        if(validIndex(index)) {
             files.remove(index);
+        }
+    }
+    
+    //Question14
+    
+    public void checkIndex(int index)
+    
+    { 
+        if(index >= 0 && index < files.size()) {
+            System.out.println();
+        }
+        
+        else{
+            System.out.println("ERROR: the valid range is 0 - " + (files.size()-1));
+        }
+    }
+    
+    //Question15
+    
+    public boolean validIndex(int index)
+    
+    {
+        if(index >= 0 && index < files.size()) {
+            return false;
+        }
+        
+        else{
+            return true;
         }
     }
 }
